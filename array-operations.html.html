@@ -1,0 +1,31 @@
+<!-- BCA Web Tech Lab – Array operations-->
+<html>
+<head>
+  <title>Array Operations – JS Web Lab</title>
+</head>
+<body>
+  <h1>Array Operations</h1>
+  <button onclick="operateArray()">Run Operations</button>
+  <div id="result"></div>
+  <script>
+    function operateArray() {
+      let arr = [23, 45, 6, 13, 9, 12, 67, 12, 1, 63];
+      let output = '';
+      arr.pop();
+      output += 'After pop: length = ' + arr.length + ', [' + arr + ']<br>';
+      arr.push(100, 200, 300);
+      output += 'After adding: length = ' + arr.length + ', [' + arr + ']<br>';
+      arr.sort((a, b) => a - b);
+      output += 'Sorted: [' + arr + ']<br>';
+      output += 'First index of 12: ' + arr.indexOf(12) + '<br>';
+      output += 'Last index of 12: ' + arr.lastIndexOf(12) + '<br>';
+      const arr2 = [400, 500, 600];
+      const newArr = arr.concat(arr2);
+      output += 'Concatenated: [' + newArr + ']<br>';
+      output += 'New array items joined by newline:<br>' +
+                newArr.join('<br>');
+      document.getElementById('result').innerHTML = output;
+    }
+  </script>
+</body>
+</html>

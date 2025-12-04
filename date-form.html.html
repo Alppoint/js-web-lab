@@ -1,0 +1,28 @@
+=<!-- BCA Web Tech Lab – Date object demo -->
+<html>
+<head>
+  <title>Date Formats – JS Web Lab</title>
+</head>
+<body>
+  <h1>Show Date Formats</h1>
+  <input type="date" id="dateInput">
+  <button onclick="showDateFormats()">Show Formats</button>
+  <div id="result"></div>
+  <script>
+    function showDateFormats() {
+      const val = document.getElementById('dateInput').value;
+      const d = new Date(val);
+
+      let result = '';
+      result += 'ISO: ' + d.toISOString() + '<br>';
+      result += 'Locale: ' + d.toLocaleDateString() + '<br>';
+      result += 'Date String: ' + d.toDateString() + '<br>';
+      result += 'Year: ' + d.getFullYear() + '<br>';
+      result += 'Month: ' + (d.getMonth() + 1) + '<br>';
+      result += 'Day: ' + d.getDate();
+
+      document.getElementById('result').innerHTML = result;
+    }
+  </script>
+</body>
+</html>

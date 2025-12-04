@@ -1,0 +1,50 @@
+<!-- BCA Web Tech Lab – Number classification -->
+<html>
+<head>
+  <title>Number Classification – JS Web Lab</title>
+</head>
+<body>
+  <h1>Enter 10 Numbers</h1>
+  <div id="inputs"></div>
+  <button onclick="makeInputs()">Create Inputs</button>
+  <button onclick="showResults()">Show Results</button>
+  <div id="result"></div>
+  <script>
+    function makeInputs() {
+      let inputs = '';
+      for (let i = 0; i < 10; i++) {
+        inputs += `<input type="number" id="num${i}" placeholder="Number ${i + 1}"><br>`;
+      }
+      document.getElementById('inputs').innerHTML = inputs;
+    }
+    function showResults() {
+      const numbers = [];
+      for (let i = 0; i < 10; i++) {
+        const value = document.getElementById(`num${i}`).value;
+        numbers.push(parseInt(value, 10));
+      }
+      let pos = 0, neg = 0, zero = 0;
+      const positives = [];
+      const negatives = [];
+      numbers.forEach(num => {
+        if (num > 0) {
+          pos++;
+          positives.push(num);
+        } else if (num < 0) {
+          neg++;
+          negatives.push(num);
+        } else {
+          zero++;
+        }
+      });
+      let output = '';
+      output += `Numbers: [${numbers}]<br>`;
+      output += `Positive count: ${pos}, Negative count: ${neg}, Zero count: ${zero}<br>`;
+      output += `Positive numbers: [${positives}]<br>`;
+      output += `Negative numbers: [${negatives}]<br>`;
+      document.getElementById('result').innerHTML = output;
+    }
+  </script>
+</body>
+</html>
+

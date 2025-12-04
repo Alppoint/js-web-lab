@@ -1,0 +1,32 @@
+<!-- BCA Web Tech Lab – Menu-driven calculator (original Q21) -->
+<html>
+<head>
+  <title>Menu Arithmetic – JS Web Lab</title>
+</head>
+<body>
+  <h1>Calculator</h1>
+  <input id="a" type="number" placeholder="First number">
+  <input id="b" type="number" placeholder="Second number">
+  <select id="choice">
+    <option value="add">Add</option>
+    <option value="sub">Subtract</option>
+    <option value="mul">Multiply</option>
+    <option value="div">Divide</option>
+  </select>
+  <button onclick="calculate()">Calculate</button>
+  <p id="result"></p>
+  <script>
+    function calculate() {
+      const a = parseFloat(document.getElementById('a').value);
+      const b = parseFloat(document.getElementById('b').value);
+      const choice = document.getElementById('choice').value;
+      let res;
+      if (choice === 'add') res = a + b;
+      else if (choice === 'sub') res = a - b;
+      else if (choice === 'mul') res = a * b;
+      else if (choice === 'div') res = b !== 0 ? a / b : 'Cannot divide by zero';
+      document.getElementById('result').innerText = res;
+    }
+  </script>
+</body>
+</html>

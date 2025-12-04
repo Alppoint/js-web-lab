@@ -1,0 +1,61 @@
+<!-- BCA Web Tech Lab – Factorial programs -->
+<html>
+<head>
+  <title>Factorial Calculations – JS Web Lab</title>
+  <style>
+    body { font-family: Arial; }
+    input, button { margin: 6px 2px; }
+  </style>
+</head>
+<body>
+  <h1>Factorial Programs</h1>
+  <button onclick="showFactorials(1, 10, 'result10')">
+    Show Factorials (1 to 10)
+  </button>
+  <div id="result10"></div>
+  <hr>
+  <input type="number" id="singleNum" placeholder="Enter a number">
+  <button onclick="showFactorialsForSingle()">Calculate Factorial</button>
+  <div id="singleResult"></div>
+  <hr>
+  <input type="number" id="rangeStart" placeholder="Start number">
+  <input type="number" id="rangeEnd" placeholder="End number">
+  <button onclick="showFactorialsRange()">Show Factorials in Range</button>
+  <div id="rangeResult"></div>
+  <script>
+    function factorial(n) {
+      let f = 1;
+      for (let i = 2; i <= n; i++) {
+        f *= i;
+      }
+      return f;
+    }
+    function showFactorials(start, end, elementId) {
+      if (start < 0 || end < 0 || start > end) {
+        document.getElementById(elementId).innerText =
+          'Enter a valid positive range (start ≤ end).';
+        return;
+      }
+      let output = '';
+      for (let i = start; i <= end; i++) {
+        output += 'Factorial of ' + i + ' = ' + factorial(i) + '<br>';
+      }
+      document.getElementById(elementId).innerHTML = output;
+    }
+    function showFactorialsForSingle() {
+      const num = parseInt(document.getElementById('singleNum').value);
+      if (isNaN(num) || num < 0) {
+        document.getElementById('singleResult').innerText =
+          'Enter a valid non-negative number.';
+        return;
+      }
+      showFactorials(num, num, 'singleResult');
+    }
+    function showFactorialsRange() {
+      const start = parseInt(document.getElementById('rangeStart').value);
+      const end = parseInt(document.getElementById('rangeEnd').value);
+      showFactorials(start, end, 'rangeResult');
+    }
+  </script>
+</body>
+</html>

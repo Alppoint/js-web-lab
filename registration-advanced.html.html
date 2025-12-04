@@ -1,0 +1,63 @@
+<!-- BCA Web Tech Lab – Advanced registration form with validation -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Registration Form – JS Web Lab</title>
+</head>
+<body>
+  <h1>Registration Form</h1>
+  <form id="regForm" onsubmit="return validateForm()">
+    First Name:
+    <input id="fname" required><br>
+    Last Name:
+    <input id="lname" required><br>
+    Qualification:
+    <input id="qual"><br>
+    Course:
+    <input id="course"><br>
+    Marks %:
+    <input id="percent" required><br>
+    DOB:
+    <input type="date" id="dob" required><br>
+    Email:
+    <input id="email" type="email"><br>
+    Phone:
+    <input id="phone" maxlength="10" required pattern="\d{10}"><br>
+    <input type="submit" value="Submit">
+    <input type="reset" value="Reset" onclick="resetForm()">
+  </form>
+  <script>
+    function validateForm() {
+      // i. Name in capitals
+      const fnameEl = document.getElementById('fname');
+      fnameEl.value = fnameEl.value.toUpperCase();
+      // iii. Phone - numeric and 10 digits
+      const phone = document.getElementById('phone').value;
+      if (isNaN(phone) || phone.length !== 10) {
+        alert('Phone must be 10 digits.');
+        return false;
+      }
+      // iv. Age calculation (readonly info)
+      const dobValue = document.getElementById('dob').value;
+      const dob = new Date(dobValue);
+      const today = new Date();
+      const age = today.getFullYear() - dob.getFullYear();
+      alert('Your age (readonly): ' + age);
+      // v. Marks whole number
+      const percentEl = document.getElementById('percent');
+      let percent = percentEl.value;
+      if (percent.indexOf('.') !== -1) {
+        percentEl.value = Math.round(percent);
+        alert('Percentage converted to whole number');
+      }
+      // vi. Alert name and location (only name here)
+      alert('Submitted! Name: ' + fnameEl.value);
+      return true;
+    }
+    function resetForm() {
+      alert('Form reset to default.');
+    }
+  </script>
+</body>
+</html>

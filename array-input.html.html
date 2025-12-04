@@ -1,0 +1,35 @@
+<!-- BCA Web Tech Lab – Array input from user -->
+<html>
+<head>
+  <title>Array Input – JS Web Lab</title>
+</head>
+<body>
+  <h1>Enter Array Items</h1>
+  <input id="size" type="number" placeholder="Array size">
+  <button onclick="makeArray()">Create Inputs</button>
+  <div id="inputs"></div>
+  <button onclick="showArray()">Show Array</button>
+  <p id="result"></p>
+  <script>
+    let arr = [];
+    function makeArray() {
+      const size = parseInt(document.getElementById('size').value);
+      let inputs = '';
+      for (let i = 0; i < size; i++) {
+        inputs += '<input type="text" id="item' + i +
+                  '" placeholder="Element ' + (i + 1) + '"><br>';
+      }
+      document.getElementById('inputs').innerHTML = inputs;
+    }
+    function showArray() {
+      const size = parseInt(document.getElementById('size').value);
+      arr = [];
+      for (let i = 0; i < size; i++) {
+        arr.push(document.getElementById('item' + i).value);
+      }
+      document.getElementById('result').innerText =
+        'Array items: ' + arr.join(', ');
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!-- BCA Web Tech Lab – Math functions demo-->
+<html>
+<head>
+  <title>Math Functions – JS Web Lab</title>
+</head>
+<body>
+  <h1>Math Methods Demo</h1>
+  <button onclick="showMath()">Show Math Functions</button>
+  <pre id="result"></pre>
+  <script>
+    function showMath() {
+      let output = '';
+      output += 'PI: ' + Math.PI + '\n';
+      output += 'Random: ' + Math.random() + '\n';
+      output += 'Square root of 16: ' + Math.sqrt(16) + '\n';
+      output += 'Absolute of -7: ' + Math.abs(-7) + '\n';
+      output += 'Power 2^3: ' + Math.pow(2, 3) + '\n';
+      output += 'Min(5,2,9): ' + Math.min(5, 2, 9) + '\n';
+      output += 'Max(5,2,9): ' + Math.max(5, 2, 9) + '\n';
+      output += 'Ceil(4.3): ' + Math.ceil(4.3) + '\n';
+      output += 'Floor(4.7): ' + Math.floor(4.7);
+      document.getElementById('result').innerText = output;
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!-- BCA Web Tech Lab – String functions demo -->
+
+<html>
+<head>
+  <title>String Functions</title>
+</head>
+<body>
+    <h1>String Functions Demo</h1>
+    <button onclick="stringFuncs()">Show String Operations</button>
+    <div id="result"></div>
+
+  <script>
+    function stringFuncs() {
+      let str = "Apples are round, and apples are juicy";
+      let output = "Original: " + str + "<br>";
+      output += "Index of 'apples': " + str.indexOf("apples") + "<br>";
+      let sub1 = str.substr(1,2); // substr(start, length)
+      output += "substr(1,2): <b>" + sub1 + "</b><br>";
+      let sub2 = str.substring(1); // substring(start)
+      output += "substring(1): <b>" + sub2 + "</b><br>";
+      output += "Char at 5: " + str.charAt(5) + "<br>";
+      let replaced = sub1.replace(sub1, "Web Technologies Lab");
+      output += "Replace substr(1,2) with Web Technologies Lab: " + replaced;
+      document.getElementById('result').innerHTML = output;
+    }
+  </script>
+</body>
+</html>
